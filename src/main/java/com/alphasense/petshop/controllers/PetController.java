@@ -16,14 +16,10 @@ public class PetController extends AbstractController {
     public PetController() {
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setBasePath("/v2/pet")
-                .log(LogDetail.ALL)
                 .build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-                .expectStatusCode(200)
-                .expectContentType(ContentType.JSON)
                 .expectResponseTime(Matchers.lessThan(15000L))
-                .log(LogDetail.ALL)
                 .build();
     }
 

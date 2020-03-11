@@ -24,6 +24,7 @@ public class PetShopRestAssuredTests {
         System.out.println("\n\n\n\n\n");
 
         Pet getPet = new PetController().getPet(String.valueOf(pet.getId()));
+        System.out.println(getPet.getName());
 
 
     }
