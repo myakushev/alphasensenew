@@ -16,6 +16,7 @@ public class PetController extends AbstractController {
     public PetController() {
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setBasePath("/v2/pet")
+                .log(LogDetail.ALL)
                 .build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
@@ -42,15 +43,12 @@ public class PetController extends AbstractController {
                 .as(Pet.class);
     }
 
-    public Pet getPet(Pet pet) {
+    public Pet getPet(String petId) {
         return given()
                 .when()
-                .get()
+                .get(petId)
                 .as(Pet.class);
     }
-
-
-
 
 
 }

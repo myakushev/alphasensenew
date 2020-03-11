@@ -19,7 +19,12 @@ public class PetShopRestAssuredTests {
 
         Pet pet = new PetController().addPet(petTest);
 
-        Assert.assertTrue(pet.equals(petTest));
+        Assert.assertEquals(pet, petTest);
+
+        System.out.println("\n\n\n\n\n");
+
+        Pet getPet = new PetController().getPet(String.valueOf(pet.getId()));
+
 
     }
 }

@@ -119,5 +119,9 @@ public class Pet {
     public int hashCode() {
         return Objects.hash(name, id, category, photoUrls, tags, status);
     }
+
+    public int getId() {
+        return this.id;
+    }
 }
 
