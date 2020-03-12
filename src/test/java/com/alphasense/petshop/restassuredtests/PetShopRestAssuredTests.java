@@ -1,7 +1,7 @@
 package com.alphasense.petshop.restassuredtests;
 
 import com.alphasense.petshop.controllers.PetController;
-import com.alphasense.petshop.dataModels.Pet;
+import com.alphasense.petshop.datamodels.petmodel.Pet;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Assert;
@@ -15,7 +15,7 @@ public class PetShopRestAssuredTests {
         String testPetName = RandomStringUtils.randomAlphabetic(5);
 //        Pet testPet = Pet.createPetFromMap();
 
-        Pet petTest = new Pet(testPetName, idTestValue, null, null, null, "AVAILABLE");
+        Pet petTest = new Pet(idTestValue, testPetName, null, null, null, "AVAILABLE");
 
         Pet pet = new PetController().addPet(petTest);
 
@@ -23,8 +23,8 @@ public class PetShopRestAssuredTests {
 
         System.out.println("\n\n\n\n\n");
 
-        Pet getPet = new PetController().getPet(String.valueOf(pet.getId()));
-        System.out.println(getPet.getName());
+        // Pet getPet = new PetController().getPet(String.valueOf(pet.getId()));
+        // System.out.println(getPet.getName());
 
 
     }

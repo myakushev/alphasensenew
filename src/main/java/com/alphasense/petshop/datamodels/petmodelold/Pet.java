@@ -1,9 +1,8 @@
-package com.alphasense.petshop.dataModels;
+package com.alphasense.petshop.datamodels.petmodelold;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;

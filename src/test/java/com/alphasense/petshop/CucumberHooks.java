@@ -3,7 +3,7 @@ package com.alphasense.petshop;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.core.api.Scenario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

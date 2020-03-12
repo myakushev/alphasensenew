@@ -1,12 +1,10 @@
 package com.alphasense.petshop.controllers;
 
-import com.alphasense.petshop.dataModels.Pet;
+import com.alphasense.petshop.datamodels.petmodel.Pet;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.filter.log.LogDetail;
-import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
+import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 
 import static io.restassured.RestAssured.given;
@@ -39,11 +37,9 @@ public class PetController extends AbstractController {
                 .as(Pet.class);
     }
 
-    public Pet getPet(String petId) {
+    public Response getPet(String petId) {
         return given()
-                .when()
-                .get(petId)
-                .as(Pet.class);
+                .get(petId);
     }
 
 
