@@ -34,7 +34,8 @@ public class Pet {
         this.status = params.get("petStatus");
         this.photoUrls = new ArrayList<>(Arrays.asList(params.get("petPhotoUrls").split(",")));
         this.tags = Arrays.stream(params.get("tags").split(","))
-                .map(item -> new Tags(item.split(":"))).collect(Collectors.toList());
+                .map(item -> new Tags(item.split(":")))
+                .collect(Collectors.toList());
     }
 
     public void setPhotoUrls(List<String> photoUrls) {

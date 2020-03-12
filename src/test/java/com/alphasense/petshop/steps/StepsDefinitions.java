@@ -35,7 +35,7 @@ public class StepsDefinitions {
         System.out.println(getTestContext().getResponseBody());
     }
 
-    @And("send create pet request with params")
+    @Given("send create pet request with params")
     public void sendCreatePetParams(List<Map<String, String>> parametersList) {
         StepUtils.putParamsIntoContext(getTestContext(), parametersList);
 
