@@ -1,6 +1,6 @@
-package com.alphasense.petshop.datamodels.petmodel;
+package com.alphasense.petshop.tests.datamodels.petmodel;
 
-import java.util.List;
+import java.util.Objects;
 
 public class Tags {
 	
@@ -34,5 +34,23 @@ public class Tags {
 
 	public Integer getId(){
 		return id;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Tags tags = (Tags) o;
+		return Objects.equals(name, tags.name) &&
+				Objects.equals(id, tags.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, id);
 	}
 }

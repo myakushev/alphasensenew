@@ -1,4 +1,4 @@
-package com.alphasense.petshop.controllers;
+package com.alphasense.petshop.tests.controllers;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -15,7 +15,6 @@ public abstract class AbstractController {
                 .log(LogDetail.ALL).build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
-                .expectStatusCode(200)
                 .expectContentType(ContentType.JSON)
                 .log(LogDetail.ALL).build();
     }

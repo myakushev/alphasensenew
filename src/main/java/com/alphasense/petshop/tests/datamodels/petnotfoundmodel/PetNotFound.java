@@ -1,4 +1,4 @@
-package com.alphasense.petshop.datamodels.petnotfoundmodel;
+package com.alphasense.petshop.tests.datamodels.petnotfoundmodel;
 
 public class PetNotFound {
 

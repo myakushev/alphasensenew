@@ -1,4 +1,4 @@
-package com.alphasense.petshop.datamodels.petmodelold;
+package com.alphasense.petshop.tests.datamodels.petmodelold;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -43,7 +41,6 @@ public class Pet {
         return status;
     }
 
-    private static final Logger logger = LoggerFactory.getLogger(Pet.class);
 
 
     public String petToJson(JsonInclude.Include include) {
@@ -54,7 +51,7 @@ public class Pet {
             json = objectMapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            logger.info("Can't create JSON");
+            // logger.info("Can't create JSON");
         }
         return json;
     }
@@ -66,7 +63,7 @@ public class Pet {
             pet = objectMapper.readValue(json, Pet.class);
         } catch (IOException e) {
             e.printStackTrace();
-            logger.info("Can't parse JSON");
+            // logger.info("Can't parse JSON");
         }
         return pet;
     }

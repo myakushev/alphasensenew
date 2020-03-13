@@ -1,9 +1,10 @@
-package com.alphasense.petshop.datamodels.petmodel;
+package com.alphasense.petshop.tests.datamodels.petmodel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Pet {
@@ -27,13 +28,13 @@ public class Pet {
         this.status = status;
     }
 
-    public Pet(Map<String, String> params) {
-        this.name = params.get("petName");
-        this.id = Integer.valueOf(params.get("petId"));
+    public Pet(Map<String, Object> params) {
+        this.name = params.get("petName").toString();
+        this.id = Integer.valueOf(params.get("petId").toString());
         this.category = new Category(params);
-        this.status = params.get("petStatus");
-        this.photoUrls = new ArrayList<>(Arrays.asList(params.get("petPhotoUrls").split(",")));
-        this.tags = Arrays.stream(params.get("tags").split(","))
+        this.status = params.get("petStatus").toString();
+        this.photoUrls = new ArrayList<>(Arrays.asList(params.get("petPhotoUrls").toString().split(",")));
+        this.tags = Arrays.stream(params.get("tags").toString().split(","))
                 .map(item -> new Tags(item.split(":")))
                 .collect(Collectors.toList());
     }
@@ -84,5 +85,27 @@ public class Pet {
 
     public String getStatus() {
         return status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Pet pet = (Pet) o;
+        return Objects.equals(photoUrls, pet.photoUrls) &&
+                Objects.equals(name, pet.name) &&
+                Objects.equals(id, pet.id) &&
+                Objects.equals(category, pet.category) &&
+                Objects.equals(tags, pet.tags) &&
+                Objects.equals(status, pet.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(photoUrls, name, id, status);
     }
 }

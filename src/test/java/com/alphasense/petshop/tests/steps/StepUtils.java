@@ -1,8 +1,6 @@
-package com.alphasense.petshop.steps;
+package com.alphasense.petshop.tests.steps;
 
-import com.alphasense.petshop.testcontext.TestContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.alphasense.petshop.tests.testcontext.TestContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +10,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public final class StepUtils {
-
-    private static final Logger logger = LoggerFactory.getLogger(StepUtils.class);
 
     public StepUtils() {
 
@@ -77,7 +73,7 @@ public final class StepUtils {
     /**
      * Extracts all group matches from string.
      *
-     * @param input  string for extracting group matches
+     * @param input string for extracting group matches
      * @return list of matches
      */
     public static List<String> extractGroupMatches(String input) {
@@ -90,23 +86,4 @@ public final class StepUtils {
         return matches;
     }
 
-    /**
-     * Substitutes parameter in string with value. Parameter - substring which matches the pattern: ${(.*)}.
-     * E.g. ${token} will be replaced with its value
-     * If param is JSON field and param value is not string it shouldn't contain double quotes.
-     * E.g. if JSON contains "limit": "${limitValue}" and limitValue is int (e.g. 4)
-     * it will be replaced with "limit": 4, not "limit": "4"
-     * If input matches  ${(.*)}+(\d)+ - parameter will be incremented with specified values
-     * Currently only int values are supported
-     *
-     * @param input      string with parameters
-     * @param paramName  name of parameter that should be substituted
-     * @param paramValue value for substitution
-     * @return string with substituted parameters
-     */
-    private static String substituteParamPattern(String paramName, String paramValue, String input) {
-        return input.replace(String.format("${%s}", paramName), paramValue);
-    }
-
 }
-

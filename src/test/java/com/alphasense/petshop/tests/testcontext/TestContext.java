@@ -1,9 +1,7 @@
-package com.alphasense.petshop.testcontext;
+package com.alphasense.petshop.tests.testcontext;
 
 import io.cucumber.core.api.Scenario;
 import io.restassured.response.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +21,13 @@ public class TestContext {
     }
 
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    // private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private Response response;
 
     // Map for storing parameters used in tests.
     // This map can be updated during test execution.
-    private Map<String, String> params = new HashMap<String, String>();
+    private Map<String, Object> params = new HashMap<>();
 
     private Scenario scenario;
 
@@ -47,19 +45,19 @@ public class TestContext {
         this.scenario = scenario;
     }
 
-    public Map<String, String> getParams() {
+    public Map<String, Object> getParams() {
         return params;
     }
 
-    public String getParam(String paramName) {
+    public Object getParam(String paramName) {
         if (params.get(paramName) != null) {
-            return params.get(paramName).toString();
+            return params.get(paramName);
         }
         return null;
     }
 
-    public void addParam(String name, String value) {
-        logger.info("Adding parameter '{}' with value: '{}' to context \n", name, value);
+    public void addParam(String name, Object value) {
+        // logger.info("Adding parameter '{}' with value: '{}' to context \n", name, value.toString());
         params.put(name, value);
     }
 

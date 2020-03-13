@@ -1,4 +1,4 @@
-package com.alphasense.petshop.datamodels.petmodelold;
+package com.alphasense.petshop.tests.datamodels.petmodelold;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
