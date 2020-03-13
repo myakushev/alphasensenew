@@ -17,7 +17,7 @@ import static com.alphasense.petshop.testcontext.TestContext.getTestContext;
 
 public class StepsDefinitions {
 
-    @Given("set unique pet id in context")
+    @Given("get unique pet id")
     public void setPetId() {
         Random random = new Random();
         int petId;
@@ -35,7 +35,7 @@ public class StepsDefinitions {
         System.out.println(getTestContext().getResponseBody());
     }
 
-    @Given("send create pet request with params")
+    @Given("create pet with params")
     public void sendCreatePetParams(List<Map<String, String>> parametersList) {
         StepUtils.putParamsIntoContext(getTestContext(), parametersList);
 
@@ -52,6 +52,16 @@ public class StepsDefinitions {
         // String body = createPetFromMap(DataReader.substituteParamsInMap(parametersList.get(0), testContext.getParams()))
         //         .petToJson(JsonInclude.Include.NON_NULL);
         // testContext.setResponse(restGatewayClient.petApi().createPet(body));
+    }
+
+
+    @And("check creation of pet")
+    public void checkPetCreation() {
+        String substitutedPetId = DataReader.substituteParamsInString(petId, testContext.getParams());
+        testContext.setResponse(restGatewayClient.petApi().getPet(substitutedPetId));
+        Assert.assertTrue(String.format("Creation of pet with id %s was not successful. Pet was not appeared in Database.", substitutedPetId),
+                testContext.getResponse().isSuccess());
+        logger.info(String.format("Pet with id %s was successfully created", substitutedPetId));
     }
 
 }
