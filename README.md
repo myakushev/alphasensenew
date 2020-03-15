@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 You need to install the following:
-- Apache Maven 3.6.0
+- Apache Maven 3.6.1
 
 ## Running the tests
 
