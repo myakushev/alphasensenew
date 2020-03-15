@@ -19,9 +19,6 @@ public class TestContext {
         return testContextEntity;
     }
 
-
-    // private final Logger logger = LoggerFactory.getLogger(getClass());
-
     private Response response;
 
     // Map for storing parameters used in tests.
@@ -34,14 +31,6 @@ public class TestContext {
         params.clear();
         response = null;
         scenario = null;
-    }
-
-    public Scenario getScenario() {
-        return scenario;
-    }
-
-    public void setScenario(Scenario scenario) {
-        this.scenario = scenario;
     }
 
     public Map<String, Object> getParams() {

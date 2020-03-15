@@ -8,15 +8,13 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import java.util.Optional;
+
 import static io.restassured.RestAssured.given;
 
 public class HttpController {
     static {
-        String baseUrl = ApiUrls.BASE_URL;
-        if (System.getProperty("baseUrl") != null) {
-            baseUrl = System.getProperty("baseUrl");
-        }
-
+        String baseUrl = Optional.ofNullable(System.getProperty("baseUrl")).orElse(ApiUrls.BASE_URL);
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setBaseUri(baseUrl)
                 .setContentType(ContentType.JSON)

@@ -21,7 +21,7 @@ Feature: PetStore
 ########################################################################################################################
 
   @category-two
-  Scenario Outline: Create order and check status
+  Scenario Outline: Create order and check status (<status>)
     Given get unique order id
     And create order with params
       | petId   | quantity   | shipDate   | status   | complete   |
