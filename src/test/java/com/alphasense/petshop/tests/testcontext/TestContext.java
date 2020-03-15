@@ -13,8 +13,7 @@ public class TestContext {
     private TestContext() {
     }
 
-    public static TestContext getTestContext()
-    {
+    public static TestContext getTestContext() {
         if (testContextEntity == null)
             testContextEntity = new TestContext();
         return testContextEntity;
@@ -57,25 +56,12 @@ public class TestContext {
     }
 
     public void addParam(String name, Object value) {
-        // logger.info("Adding parameter '{}' with value: '{}' to context \n", name, value.toString());
         params.put(name, value);
     }
 
-    public boolean containsParam(String name) {
-        return params.containsKey(name);
+    public Response getResponse() {
+        return response;
     }
-
-       public String getResponseBody() {
-           return response.body().asString();
-       }
-
-       public Response getResponse() {
-           return response;
-       }
-    //
-    //    public void setResponse(HttpResponseDecorator response) {
-    //        this.response = response;
-    //    }
 
     public void setResponse(Response response) {
         this.response = response;

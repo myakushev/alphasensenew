@@ -26,8 +26,9 @@ public class CucumberHooks {
     }
 
     @After(order = 1)
-    public void tearDown() {
+    public void tearDown(Scenario scenario) {
         getTestContext().clear();
+        logger.info("{} END OF SCENARIO '{}' {}\n\n\n\n\n\n\n", SPLITTER, scenario.getName(), SPLITTER);
     }
 
 }

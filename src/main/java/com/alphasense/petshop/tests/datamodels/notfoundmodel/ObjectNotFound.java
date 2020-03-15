@@ -1,15 +1,15 @@
-package com.alphasense.petshop.tests.datamodels.petnotfoundmodel;
+package com.alphasense.petshop.tests.datamodels.notfoundmodel;
 
-public class PetNotFound {
+public class ObjectNotFound {
 
     private Integer code;
     private String type;
     private String message;
 
-    public PetNotFound() {
+    public ObjectNotFound() {
     }
 
-    public PetNotFound(Integer code, String type, String message) {
+    public ObjectNotFound(Integer code, String type, String message) {
         this.code = code;
         this.type = type;
         this.message = message;
