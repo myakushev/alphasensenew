@@ -1,6 +1,6 @@
 # AlphaSenseNew Test Framework
 
-Кeworked Home task from AlphaSense.
+Reworked Home task from AlphaSense.
 
 ## Getting Started
 
