@@ -22,7 +22,7 @@ where you can specify annotation to choose which tests you want to execute. It i
 @category-one - allows you to run 1st test (pet testing)
 @category-two - allows you to run 2nd test (order testing)
 
-- also now you can optionally specify baseUrl parameter (DbaseUrl in command line above) with actual url of the test product.
+- also now you can optionally specify baseUrl parameter (DbaseUrl parameter in command line above) with actual url of the test product.
 - allure:serve - open web page with test report generated with allure
 
 All tests are stored in _PetStore.feature_ file.
